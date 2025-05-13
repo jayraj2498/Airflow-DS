@@ -1,0 +1,135 @@
+Apachi airflow is the used programatically autor, schedule , monitor  
+
+- it allows you to manage the complex workflow as code and manage thier execution  
+- Airflow is commonly used for data pipeline --> for task like (ETL) Extraction , transformation , loading  Across multiple system 
+
+Extraction-> from whivh sourse we extract data (api, database) , 
+transformation -> for cleaning , processing we write the code  
+loading-> we write code to load the data into database (mysql, mongodb,s3) 
+
+Inside DS proj :
+1st step requirement data gathering  -> then   Data pipeline Created by using (ETL) process  -> then Data ingestion, FE , FS , model creation ,tunnig 
+then model deployement 
+
+
+# all abouve step we have that have to be automated  --> for that we use "Apachi Airflow" 
+# all abouve step in that we can crate the task for inside the  airflow 
+
+
+
+------------- Apachi Airflow  ---------------------
+
+Key concept inside Apachi Airflow :
+
+1) DAG (Directed acyclic Graph )
+    - Dag : is collection of task that you want to schedule and run (how your task is intracting to each other you define in your task )
+      task like -> A>B>C or C>B>A 
+
+    - Task :  is representation of individual unit 
+
+    - Dependency : means ex one task should finish before strating another task 
+                   Airflow provide the mechenism like set_downstream , set_upstream 
+
+
+
+
+
+Q) why Airflow for mlops : 
+
+1) Airflow define ,automate, monitor ,every step inside the mlflow
+2) Task automattion 
+3) monitoring and alerts 
+
+
+
+# Settingup airflow with astronomer(Astro)
+
+astronomer(Astro) it is the manage platform for apachiAirflow that simplified running and scaling 
+with the help of this platform is realy easy 
+https://www.astronomer.io/docs/
+
+
+
+
+### ---- https://youtu.be/K9AnJ9_ZAXE?si=-w-qZq_jp8LZe_cN --- ### 
+
+
+
+# Core Concepts You Should Know First
+
+Concept	What it Means: 
+- DAG	Directed Acyclic Graph – a collection of tasks you want to run, organized in a way that reflects their relationships and dependencies.
+- Task	A single unit of work (like running a script, transferring data, training a model, etc.)
+- Operator	The building block – defines what a task actually does. (e.g., PythonOperator, BashOperator, etc.)
+- Scheduler	The part of Airflow that decides when to run your tasks.
+- Executor	It decides how your tasks run (Locally, in parallel, on Kubernetes, etc.)
+- Web UI	A friendly dashboard to view and manage your DAGs.
+
+
+## Real-World Data Science Use Case with Airflow
+Imagine this pipeline:
+
+Extract data (from an API or database)
+
+Preprocess and clean data
+
+Train a Machine Learning model
+
+Evaluate the model
+
+Store results or send notifications
+
+You can automate all of this using Airflow, step-by-step, as a DAG. 
+
+
+----------------------------------------------------------------------------------------   
+Ex. 
+
+1) Install Airflow (for local learning)
+# Create a virtual environment
+python -m venv airflow_env
+source airflow_env/bin/activate
+
+# Install Airflow
+pip install apache-airflow
+
+# Initialize Airflow DB
+airflow db init
+
+# Create a user (admin)
+airflow users create \
+    --username jayraj \
+    --firstname Jayraj \
+    --lastname Sonawane \
+    --role Admin \
+    --email jayraj@example.com \
+    --password airflow123
+
+# Start the webserver (UI) and scheduler
+airflow webserver --port 8080
+airflow scheduler
+
+
+
+
+
+
+
+
+
+
+# run the code 
+
+E:\ml_ops_proj\apachi_airflow>astro dev init
+
+run this abouuve command 
+
+we get all files and folder :
+inside the Dags folder we create all our dags :
+
+
+
+
+
+
+
